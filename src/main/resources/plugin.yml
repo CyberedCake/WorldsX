@@ -1,0 +1,8 @@
+name: WorldsX
+version: 1.0.0
+main: net.cybercake.worldsx.worldsx.WorldsX
+api-version: 1.19
+prefix: WorldsX
+authors: [ CyberedCake ]
+description: Provides basic world(s) commands
+website: https://github.com/CyberedCake/WorldsX
