@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class List extends SubCommand {
 
     public List() {
-        super("list", "list", Main.getLang().getTranslation("commands.list.description"), "list [world]", "worldlist");
+        super("list", "list", Main.getLang().getTranslation("commands.list.description"), "list", "worldlist");
     }
 
     @Override

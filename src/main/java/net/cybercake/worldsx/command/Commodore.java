@@ -37,6 +37,16 @@ public class Commodore {
                         )
                 )
                 .then(gamerule())
+                .then(LiteralArgumentBuilder.literal("list"))
+                .then(LiteralArgumentBuilder.literal("help"))
+                .then(LiteralArgumentBuilder.literal("unload")
+                        .then(RequiredArgumentBuilder.argument("world", StringArgumentType.word()))
+                )
+                .then(LiteralArgumentBuilder.literal("tp")
+                        .then(RequiredArgumentBuilder.argument("world", StringArgumentType.word())
+                                .then(RequiredArgumentBuilder.argument("player", StringArgumentType.word()))
+                        )
+                )
 
 
                 .build();
