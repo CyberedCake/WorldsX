@@ -113,10 +113,8 @@ public class Gamerule extends SubCommand {
             if(args.length == 2) {
                 if(gameRule.getType() == Boolean.class)
                     return ImmutableList.of(Main.BOOLEAN_TRUE, Main.BOOLEAN_FALSE);
-                else if(gameRule.getType() == Integer.class) {
-                    int defaultValue = getDefaultValue(gameRule);
-                    return (defaultValue == -1 ? null : List.of(String.valueOf(defaultValue)));
-                }
+                else if(sender instanceof Player player)
+                    return List.of(String.valueOf(player.getWorld().getGameRuleValue(gameRule)));
             }
             if(args.length == 3) {
                 return Bukkit.getWorlds()
@@ -126,19 +124,5 @@ public class Gamerule extends SubCommand {
             }
         }
         return null;
-    }
-
-    private int getDefaultValue(GameRule<?> gameRule){
-        if(gameRule.getType() != Integer.class)
-            throw new IllegalArgumentException(GameRule.class.getCanonicalName() + " must be of an " + Integer.class.getCanonicalName() + " class, found " + gameRule.getType().getCanonicalName() + "!");
-
-        return switch(gameRule.getName()) { // if no default value is found here, it will default to nothing (just not tab completing)
-            case "maxCommandChainLength" -> 65536;
-            case "maxEntityCramming" -> 24;
-            case "playersSleepingPercentage" -> 100;
-            case "randomTickSpeed" -> 3;
-            case "spawnRadius" -> 10;
-            default -> -1;
-        };
     }
 }

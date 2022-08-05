@@ -28,7 +28,7 @@ public class CommandManager extends Command {
                         .setUsage("Use &e/updater help &rfor help!")
                         .setAliases("worlds", "world", "w", "dimensions")
                         .setTabCompleteType(TabCompleteType.SEARCH)
-                        .setCommodore(Commodore.forCommand())
+
         );
         INSTANCE = this;
 

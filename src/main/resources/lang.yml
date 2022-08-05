@@ -10,7 +10,8 @@ lang:
       exception:
         unknown: "&cAn unknown error occurred whilst using that!"
         known: "&cAn error occurred! &8{0}"
-      boolean: # requires server restart -> it is also recommended you don't add spaces, color codes, or special characters to these values
+      boolean: # doesn't require server restart but may cause some issues changing with /worlds reload
+               # -> it is also recommended you don't add spaces, color codes, or special characters to these values
         true: "true"
         false: "false"
     help:
@@ -58,3 +59,6 @@ lang:
       description: "Unloads a specified world." # requires server restart
       mainWorld: "&cYou cannot unload the main world!"
       success: "&6You successfully unloaded the world named &a{0}&6!"
+    reload:
+      description: "Reloads the configuration file." # requires server restart
+      success: "&6You successfully reloaded the configuration files in &a{0}ms&6!"

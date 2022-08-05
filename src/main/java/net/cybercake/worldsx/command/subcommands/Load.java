@@ -62,13 +62,13 @@ public class Load extends SubCommand {
             if(worldCheck != null) {
                 sender.sendMessage(Main.getLang().getTranslation("commands.load.success", args[0]));
 
-                setIfNull(args[0], "name", args[0].toLowerCase(Locale.ROOT));
-                setIfNull(args[0], "key", worldCheck.getKey().toString());
-                setIfNull(args[0], "loaded.loaded", true);
-                setIfNull(args[0], "loaded.by", sender.getName());
-                setIfNull(args[0], "loaded.time", Time.getUnix());
-                setIfNull(args[0], "type", type.getName().toLowerCase(Locale.ROOT));
-                setIfNull(args[0], "spawnLocation", worldCheck.getSpawnLocation());
+                WorldUtil.setIfNull(args[0], "name", args[0].toLowerCase(Locale.ROOT));
+                WorldUtil.setIfNull(args[0], "key", worldCheck.getKey().toString());
+                WorldUtil.setIfNull(args[0], "loaded.loaded", true);
+                WorldUtil.setIfNull(args[0], "loaded.by", sender.getName());
+                WorldUtil.setIfNull(args[0], "loaded.time", Time.getUnix());
+                WorldUtil.setIfNull(args[0], "type", type.getName().toLowerCase(Locale.ROOT));
+                WorldUtil.setIfNull(args[0], "spawnLocation", worldCheck.getSpawnLocation());
 
                 Bukkit.getScheduler().runTaskLater(Main.getInstance(), () -> {
                     if(sender instanceof Player player)
@@ -83,18 +83,6 @@ public class Load extends SubCommand {
             }
         } catch (Exception exception) {
             WorldsXError.raise(sender, "An error occurred during the world creation/loading process for " + args[0] + " (user=" + sender.getName() + ")", exception);
-        }
-    }
-
-    public void setIfNull(String world, String path, Object toWhat) {
-        path = "worlds." + world + "." + path;
-        if(Main.getWorlds().values().getObject(path, Object.class) == null) {
-            try {
-                Main.getWorlds().values().set(path, toWhat);
-                Main.getWorlds().save();
-            } catch (Exception exception) {
-                WorldsXError.raise(Bukkit.getConsoleSender(), exception);
-            }
         }
     }
 

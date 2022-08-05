@@ -4,6 +4,7 @@ import com.mojang.brigadier.arguments.*;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import net.cybercake.worldsx.Main;
 import org.bukkit.GameRule;
 import org.bukkit.WorldType;
 
@@ -47,6 +48,7 @@ public class Commodore {
                                 .then(RequiredArgumentBuilder.argument("player", StringArgumentType.word()))
                         )
                 )
+                .then(LiteralArgumentBuilder.literal("reload"))
 
 
                 .build();
@@ -70,7 +72,7 @@ public class Commodore {
         for(GameRule<?> gameRule : GameRule.values()) {
             ArgumentType<?> argumentType;
             if(gameRule.getType() == Boolean.class)
-                argumentType = BoolArgumentType.bool();
+                argumentType = (Main.BOOLEAN_FALSE.equalsIgnoreCase("false") && Main.BOOLEAN_TRUE.equalsIgnoreCase("true") ? BoolArgumentType.bool() : StringArgumentType.word());
             else if(gameRule.getType() == Integer.class)
                 argumentType = IntegerArgumentType.integer();
             else
