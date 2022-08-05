@@ -1,0 +1,60 @@
+lang:
+  general:
+    onEnable: "Loaded {0} in {1}ms!"
+    onDisable: "Unloaded {0} in {1}ms!"
+  commands:
+    general:
+      usage: "&cInvalid usage! &7{0}"
+      invalid: "&cInvalid {0}! &8{1}"
+      foundValid: "&cInvalid {0}! Valid are: &7{1}"
+      exception:
+        unknown: "&cAn unknown error occurred whilst using that!"
+        known: "&cAn error occurred! &8{0}"
+      boolean: # requires server restart -> it is also recommended you don't add spaces, color codes, or special characters to these values
+        true: "true"
+        false: "false"
+    help:
+      description: "Prints this help message." # requires server restart
+      title: "&d&lWORLDX HELP: &7&o({0} commands available)"
+      commandUsage: "&3/&f{0}"
+      commandShown: "&3/&b{0}"
+    delete:
+      description: "Deletes a specified world." # requires server restart
+      mainWorld: "&cYou cannot delete the main world!"
+      deletionInProgress: "&7&oDeleting the world {0}... please wait!"
+      success: "&6Successfully deleted the world &a{0}&6!"
+      failed: "&cFailed to delete the world &a{0}&c!"
+    gamerule:
+      description: "Change the gamerule of a specified world." # requires server restart
+      current: "&6Gamerule &a{0} &6is currently set to &f{1} &6in world &e{2}&6!"
+      incorrectDataType: "&cExpected {0}, but found &b{1}&c!"
+      set: "&6Set gamerule &a{0} &6to &f{1} &6in world &e{2}&6!"
+    list:
+      description: "Prints a list of all worlds." # requires server restart
+      title: "&d&lALL WORLDS: &7({0})"
+      item: "&b{0} &e({1})&f: {2}"
+      itemHover: |-
+        &6Players &7({0})&6: &a{1}
+        
+        &eClick here to teleport to &b"{2}"&e!
+    load:
+      description: "Loads or creates a world based on if it exists or not." # requires server restart
+      alreadyLoaded: "&cA world is already loaded with the name {0}!"
+      fileNotAWorld: "&cThe following file does not seem to be a world: &8{0}"
+      creationInProgress: "&7&oCreating or loading a new world... please wait!"
+      success: "&6Successfully created or loaded a new world named &a{0}&6!"
+      failed: "&cFailed to load the world &a{0}&c!"
+    setspawn:
+      description: "Sets the spawn of a specified world." # requires server restart
+      failed:
+        parsing: "&cFailed to parse location, are all your arguments present and correct? &7{0}"
+      success:
+        yourLocation: "&6Successfully set the spawn location to &ayour &6location!"
+        coordinates: "&6Successfully set the spawn location of &e{0} &6to &bx=&f{1} &ey=&f{2} &az=&f{3} &dyaw=&f{4} &6pitch=&f{5}&6!"
+    teleport:
+      description: "Teleports you or another player to a specified world." # requires server restart
+      success: "&6You teleported &a{0} &6to &f{1}&6's spawn!"
+    unload:
+      description: "Unloads a specified world." # requires server restart
+      mainWorld: "&cYou cannot unload the main world!"
+      success: "&6You successfully unloaded the world named &a{0}&6!"

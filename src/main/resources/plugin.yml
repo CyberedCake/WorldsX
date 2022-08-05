@@ -1,6 +1,6 @@
 name: WorldsX
 version: 1.0.0
-main: net.cybercake.worldsx.worldsx.WorldsX
+main: net.cybercake.worldsx.Main
 api-version: 1.19
 prefix: WorldsX
 authors: [ CyberedCake ]

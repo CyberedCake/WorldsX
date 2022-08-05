@@ -21,7 +21,7 @@ repositories {
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT'
 
-    implementation 'com.github.CyberedCake.CyberAPI:spigot:61'
+    implementation 'com.github.CyberedCake.CyberAPI:spigot:65'
 }
 
 def targetJavaVersion = 17

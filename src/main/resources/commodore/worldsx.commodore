@@ -1,0 +1,8 @@
+worldsx {
+  gamerule {
+    doDaylightCycle {
+      true;
+      false;
+    }
+  }
+}
