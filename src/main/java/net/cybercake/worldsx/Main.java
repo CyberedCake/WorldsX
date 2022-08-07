@@ -13,6 +13,7 @@ import net.cybercake.worldsx.utils.WorldUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.PluginCommand;
+import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,10 +62,13 @@ public class Main extends CyberAPI {
         registerListener(new CommandListener());
 
         List<String> worlds = new ArrayList<>(WorldUtil.getAllUnloadedWorlds());
-        worlds.addAll(Main.getWorlds().values().getConfigurationSection("worlds").getKeys(true));
-        for(String world : worlds) {
-            if(!getWorlds().values().getBoolean("worlds." + world + ".loaded.loaded")) continue;
-            WorldUtil.loadWorld(world);
+        ConfigurationSection section = Main.getWorlds().values().getConfigurationSection("worlds");
+        if(section != null) {
+            worlds.addAll(section.getKeys(true));
+            for(String world : worlds) {
+                if(!getWorlds().values().getBoolean("worlds." + world + ".loaded.loaded")) continue;
+                WorldUtil.loadWorld(world);
+            }
         }
         for(World world : Bukkit.getWorlds()) {
             if(getWorlds().values().getConfigurationSection("worlds." + world) == null) WorldUtil.loadWorld(world.getName());
